@@ -92,6 +92,28 @@ class Test_CODAS(unittest.TestCase):
         
         self.assertEqual(list(np.round(test_result, 4)), list(real_result))
 
+    def test_codas2(self):
+        """Badi, I., Ballem, M., & Shetwan, A. (2018). Site selection of desalination plant in 
+        Libya by using Combinative Distance-based Assessment (CODAS) Method. International Journal 
+        for Quality Research, 12(3), 609."""
+
+        matrix = np.array([[8, 8, 10, 9, 5],
+        [8, 9, 9, 9, 8],
+        [9, 9, 7, 8, 6],
+        [8, 8, 7, 8, 9],
+        [9, 8, 7, 7, 4]])
+
+        weights = np.array([0.19, 0.26, 0.24, 0.17, 0.14])
+        types = np.array([-1, 1, 1, 1, -1])
+
+        method = CODAS(normalization_method = norms.linear_normalization, distance_metric = dists.euclidean, tau = 0.02)
+        test_result = method(matrix, weights, types)
+        real_result = np.array([0.4463, 0.1658, -0.2544, -0.4618, 0.1041])
+        print('CODAS 2')
+        print(test_result)
+        
+        self.assertEqual(list(np.round(test_result, 4)), list(real_result))
+
 
 # Test for the WASPAS method
 class Test_WASPAS(unittest.TestCase):
@@ -289,6 +311,7 @@ def main():
 
     test_codas = Test_CODAS()
     test_codas.test_codas()
+    test_codas.test_codas2()
 
     test_waspas = Test_WASPAS()
     test_waspas.test_waspas()
