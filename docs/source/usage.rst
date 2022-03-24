@@ -97,6 +97,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [0.3075 0.2536 0.3272 0.2623 0.8563 0.1914]
 	Ranking:  [3 5 2 4 1 6]
 
@@ -147,6 +148,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [0.6399 1.     0.6929 0.2714 0.     0.6939]
 	Ranking:  [3 6 4 2 1 5]
 	
@@ -204,6 +206,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [0.478  0.5781 0.5557 0.5801]
 	Ranking:  [1 3 2 4]
 
@@ -253,6 +256,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [ 1.3914  0.3411 -0.217  -0.5381 -0.7292 -0.2481]
 	Ranking:  [1 2 3 5 6 4]
 
@@ -302,6 +306,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [0.5623 0.6578 0.6193 0.641  0.7224]
 	Ranking:  [5 2 4 3 1]
 
@@ -352,6 +357,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [0.4141 0.13   0.4607 0.212  0.9443 0.043 ]
 	Ranking:  [3 5 2 4 1 6]
 
@@ -406,6 +412,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Preference values:  [-0.1553 -0.0895  0.5054  0.1324  0.2469 -0.3868 -0.1794  0.3629 -0.0842
 	-0.1675  0.1399]
 	Ranking:  [ 8  7  1  5  3 11 10  2  6  9  4]
@@ -453,6 +460,7 @@ Returns
 Output
 
 .. code-block:: console
+
 	Ranking:  [3 2 1]
 	
 
