@@ -19,6 +19,8 @@ from pyrepo.additions import rank_preferences
 import unittest
 import numpy as np
 
+import copy
+
 
 # Test for the VIKOR method
 class Test_VIKOR(unittest.TestCase):
@@ -282,6 +284,17 @@ class Test_MULTIMOORA(unittest.TestCase):
         real_result = np.array([3, 2, 1])
         print('MULTIMOORA')
         print('Ranking: ', test_result)
+
+        prefs = np.array([[4.94364901e-01, 4.56157867e-02, 3.85006756e-09],
+        [5.26950959e-01, 6.08111832e-02, 9.62516889e-09],
+        [6.77457681e-01, 0.00000000e+00, 4.45609671e-08]])
+
+        ranks = np.array([[3, 2, 1],
+        [2, 3, 1],
+        [3, 2, 1]])
+        
+        result = compromises.improved_borda_rule(prefs, ranks)
+        print('Improved Borda Rule compromise ranking: ', result)
         
         self.assertEqual(list(test_result), list(real_result))
 
@@ -306,6 +319,7 @@ class Test_Copeland(unittest.TestCase):
         [5, 6, 3, 2, 6, 5]])
 
         test_result = compromises.borda_copeland_compromise_ranking(matrix)
+        print('Copeland compromise ranking: ', test_result)
         real_result = np.array([7, 6, 8, 1, 2, 3, 9, 5, 10, 4])
 
         self.assertEqual(list(test_result), list(real_result))
@@ -324,7 +338,11 @@ class Test_Dominance_Directed_Graph(unittest.TestCase):
         [1, 1, 1]])
 
         test_result = compromises.dominance_directed_graph(matrix)
-        print(test_result)
+        print('Dominance directed graph compromise ranking: ', test_result)
+
+        result = compromises.rank_position_method(matrix)
+        print('Rank position compromise ranking: ', result)
+
         real_result = np.array([3, 2, 1])
 
         self.assertEqual(list(test_result), list(real_result))

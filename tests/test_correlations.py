@@ -15,6 +15,7 @@ class Test_Spearman(unittest.TestCase):
         R = np.array([1, 2, 3, 4, 5])
         Q = np.array([1, 3, 2, 4, 5])
         test_result = corrs.spearman(R, Q)
+        print('Spearman coeff: ', np.round(test_result, 4))
         real_result = 0.9
         self.assertEqual(test_result, real_result)
 
@@ -30,6 +31,7 @@ class Test_Weighted_Spearman(unittest.TestCase):
         R = np.array([1, 2, 3, 4, 5])
         Q = np.array([1, 3, 2, 4, 5])
         test_result = corrs.weighted_spearman(R, Q)
+        print('Weighted Spearman coeff: ', np.round(test_result, 4))
         real_result = 0.8833
         self.assertEqual(np.round(test_result, 4), real_result)
 
@@ -45,6 +47,7 @@ class Test_WS(unittest.TestCase):
         R = np.array([1, 2, 3, 4, 5])
         Q = np.array([1, 3, 2, 4, 5])
         test_result = corrs.WS_coeff(R, Q)
+        print('WS coeff: ', np.round(test_result, 4))
         real_result = 0.8542
         self.assertEqual(np.round(test_result, 4), real_result)
 
@@ -60,6 +63,7 @@ class Test_Pearson(unittest.TestCase):
         R = np.array([1, 2, 3, 4, 5])
         Q = np.array([1, 3, 2, 4, 5])
         test_result = corrs.pearson_coeff(R, Q)
+        print('Pearson coeff: ', np.round(test_result, 4))
         real_result, _ = pearsonr(R, Q)
         self.assertEqual(test_result, real_result)
 

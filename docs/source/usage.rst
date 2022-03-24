@@ -94,6 +94,9 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the TOPSIS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
+	
 Output
 
 .. code-block:: console
@@ -144,6 +147,9 @@ Returns
 	
 	# Generate ranking of alternatives by sorting alternatives ascendingly according to the VIKOR algorithm (reverse = False means sorting in ascending order) according to preference values
 	rank = rank_preferences(pref, reverse = False)
+	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
 	
 Output
 
@@ -203,6 +209,9 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives ascendingly according to the SPOTIS algorithm (reverse = False means sorting in ascending order) according to preference values
 	rank = rank_preferences(pref, reverse = False)
 	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
+	
 Output
 
 .. code-block:: console
@@ -210,6 +219,7 @@ Output
 	Preference values:  [0.478  0.5781 0.5557 0.5801]
 	Ranking:  [1 3 2 4]
 
+	
 	
 The CODAS method
 
@@ -252,6 +262,9 @@ Returns
 	
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the CODAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
+	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
 	
 Output
 
@@ -302,6 +315,9 @@ Returns
 	
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the WASPAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
+	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
 	
 Output
 
@@ -354,6 +370,9 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the EDAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
+	
 Output
 
 .. code-block:: console
@@ -361,6 +380,7 @@ Output
 	Preference values:  [0.4141 0.13   0.4607 0.212  0.9443 0.043 ]
 	Ranking:  [3 5 2 4 1 6]
 
+	
 	
 The MABAC method
 
@@ -409,6 +429,9 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the MABAC algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+	print('Preference values: ', pref)
+	print('Ranking: ', rank)
+	
 Output
 
 .. code-block:: console
@@ -417,6 +440,7 @@ Output
 	-0.1675  0.1399]
 	Ranking:  [ 8  7  1  5  3 11 10  2  6  9  4]
 
+	
 	
 The MULTIMOORA method
 
@@ -456,6 +480,8 @@ Returns
 	
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the MULTIMOORA algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
+	
+	print('Ranking: ', rank)
 	
 Output
 
@@ -497,9 +523,13 @@ Returns
 	# Calculate the compromise ranking using `borda_copeland_compromise_ranking` method
 	result = compromises.borda_copeland_compromise_ranking(matrix)
 	
+	print('Copeland compromise ranking: ', result)
+	
 Output
 
 .. code-block:: console
+
+	Copeland compromise ranking:  [ 7  6  8  1  2  3  9  5 10  4]
 
 
 	
@@ -526,11 +556,15 @@ Returns
 	# Calculate the compromise ranking using `dominance_directed_graph` method
 	result = compromises.dominance_directed_graph(matrix)
 	
+	print('Dominance directed graph compromise ranking: ', result)
+	
 Output
 
 .. code-block:: console
 
+	Dominance directed graph compromise ranking:  [3 2 1]
 
+	
 	
 The Rank Position compromise ranking method
 
@@ -555,17 +589,23 @@ Returns
 	# Calculate the compromise ranking using `rank_position_method` method
 	result = compromises.rank_position_method(matrix)
 	
+	print('Rank position compromise ranking: ', result)
+	
 Output
 
 .. code-block:: console
+
+	Rank position compromise ranking:  [3 2 1]
 
 
 	
 The Improved Borda Rule compromise ranking method for MULTIMOORA
 
 Parameters
-	matrix : ndarray
-		Matrix with rankings provided by different MCDA methods in particular columns.
+	prefs : ndarray
+		Matrix with preference values provided by different approaches of MULTIMOORA in particular columns.
+	ranks : ndarray
+		Matrix with rankings provided by different approaches of MULTIMOORA in particular columns.
 		
 Returns
 	ndarray
@@ -575,6 +615,11 @@ Returns
 
 	import numpy as np
 	from pyrepo import compromise_rankings as compromises
+	
+	# Provide matrix with different preference values given by different MCDA methods in columns
+	prefs = np.array([[4.94364901e-01, 4.56157867e-02, 3.85006756e-09],
+	[5.26950959e-01, 6.08111832e-02, 9.62516889e-09],
+	[6.77457681e-01, 0.00000000e+00, 4.45609671e-08]])
 
 	# Provide matrix with different rankings given by different MCDA methods in columns
 	matrix = np.array([[3, 2, 3],
@@ -582,11 +627,14 @@ Returns
 	[1, 1, 1]])
 	
 	# Calculate the compromise ranking using `improved_borda_rule` method
-	result = compromises.improved_borda_rule(matrix)
+	result = compromises.improved_borda_rule(prefs, ranks)
+    print('Improved Borda Rule compromise ranking: ', result)
 
 Output
 
 .. code-block:: console
+
+	Improved Borda Rule compromise ranking:  [2 3 1]
 
 
 
@@ -620,7 +668,9 @@ Output
 
 .. code-block:: console
 
+	Spearman coeff:  0.9
 
+	
 	
 Weighted Spearman correlation coefficient
 
@@ -650,7 +700,9 @@ Output
 
 .. code-block:: console
 
-
+	Weighted Spearman coeff:  0.8833
+	
+	
 	
 Similarity rank coefficient WS
 
@@ -680,7 +732,9 @@ Output
 
 .. code-block:: console
 
+	WS coeff:  0.8542
 
+	
 	
 Pearson correlation coefficient
 
@@ -710,7 +764,9 @@ Output
 
 .. code-block:: console
 
+	Pearson coeff:  0.9
 
+	
 	
 Method for sensitivity analysis considering criteria weights modification
 
