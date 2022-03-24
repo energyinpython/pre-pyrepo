@@ -5,14 +5,7 @@ import matplotlib
 from tabulate import tabulate
 from visualizations import *
 
-from pyrepo.mcda_methods import CODAS
-from pyrepo.mcda_methods import TOPSIS
-from pyrepo.mcda_methods import WASPAS
-from pyrepo.mcda_methods import VIKOR
-from pyrepo.mcda_methods import SPOTIS
-from pyrepo.mcda_methods import EDAS
-from pyrepo.mcda_methods import MABAC
-from pyrepo.mcda_methods import MULTIMOORA
+from pyrepo.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
 
 from pyrepo import distance_metrics as dists
 from pyrepo import correlations as corrs

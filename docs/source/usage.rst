@@ -15,35 +15,35 @@ To use PyREPO, first install it using pip:
 Importing methods from pyrepo package
 -------------------------------------
 
-MCDA methods for example TOPSIS:
+Import MCDA methods from module `mcda_methods`:
 
->>> from pyrepo.mcda_methods import TOPSIS
+>>> from pyrepo.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
 
-weighting methods:
+Import weighting methods from module `weighting_methods`:
 
 >>> from pyrepo import weighting_methods as mcda_weights
 
-Normalization mathods:
+Import normalization methods from module `normalizations`:
 
 >>> from pyrepo import normalizations as norms
 
-Correlations:
+Import correlation coefficient from module `correlations`:
 
 >>> from pyrepo import correlations as corrs
 
-Distance metrics:
+Import distance metrics from module `distance_metrics`:
 
 >>> from pyrepo import distance_metrics as dists
 
-Compromise rankings:
+Import compromise rankings methods from module `compromise_rankings`:
 
 >>> from pyrepo import compromise_rankings as compromises
 
-Sensitivity analysis method:
+Import Sensitivity analysis method from module `sensitivity_analysis`:
 
 >>> from pyrepo.sensitivity_analysis import Sensitivity_analysis_weights
 
-Ranking alternatives according to prefernce values:
+Import method for ranking alternatives according to prefernce values from module `additions`:
 
 >>> from pyrepo.additions import rank_preferences
 
