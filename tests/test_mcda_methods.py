@@ -267,7 +267,9 @@ class Test_MULTIMOORA(unittest.TestCase):
 class Test_Copeland(unittest.TestCase):
 
     def test_copeland(self):
-        """"""
+        """Ecer, F. (2021). A consolidated MCDM framework for performance assessment of 
+        battery electric vehicles based on ranking strategies. Renewable and Sustainable 
+        Energy Reviews, 143, 110916."""
 
         matrix = np.array([[7, 8, 7, 6, 7, 7],
         [4, 7, 5, 7, 5, 4],
@@ -282,6 +284,25 @@ class Test_Copeland(unittest.TestCase):
 
         test_result = compromises.borda_copeland_compromise_ranking(matrix)
         real_result = np.array([7, 6, 8, 1, 2, 3, 9, 5, 10, 4])
+
+        self.assertEqual(list(test_result), list(real_result))
+
+
+# Test for dominance directed graph compromise ranking
+class Test_Dominance_Directed_Graph(unittest.TestCase):
+
+    def test_dominance_directed_graph(self):
+        """Karabasevic, D., Stanujkic, D., Urosevic, S., & Maksimovic, M. (2015). Selection of 
+        candidates in the mining industry based on the application of the SWARA and the 
+        MULTIMOORA methods. Acta Montanistica Slovaca, 20(2)."""
+
+        matrix = np.array([[3, 2, 3],
+        [2, 3, 2],
+        [1, 1, 1]])
+
+        test_result = compromises.dominance_directed_graph(matrix)
+        print(test_result)
+        real_result = np.array([3, 2, 1])
 
         self.assertEqual(list(test_result), list(real_result))
 
@@ -330,6 +351,9 @@ def main():
 
     test_copeland = Test_Copeland()
     test_copeland.test_copeland()
+
+    test_dominance_directed_graph = Test_Dominance_Directed_Graph()
+    test_dominance_directed_graph.test_dominance_directed_graph()
 
 
 if __name__ == '__main__':
