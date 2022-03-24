@@ -63,7 +63,7 @@ Parameters
 		
 Returns
 	ndarray
-		Vector with preference values of alternatives
+		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
 .. code-block:: console
 
@@ -96,6 +96,18 @@ Returns
 	
 The VIKOR method
 
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in ascending order according to preference values.
+
 .. code-block:: console
 
 	import numpy as np
@@ -126,6 +138,18 @@ The VIKOR method
 	
 	
 The SPOTIS method
+
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in ascending order according to preference values.
 
 .. code-block:: console
 
@@ -165,6 +189,18 @@ The SPOTIS method
 	
 The CODAS method
 
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
+
 .. code-block:: console
 
 	import numpy as np
@@ -196,6 +232,18 @@ The CODAS method
 	
 The WASPAS method
 
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
+
 .. code-block:: console
 
 	import numpy as np
@@ -225,6 +273,18 @@ The WASPAS method
 	
 	
 The EDAS method
+
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
 .. code-block:: console
 
@@ -256,6 +316,18 @@ The EDAS method
 	
 	
 The MABAC method
+
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
 .. code-block:: console
 
@@ -293,6 +365,18 @@ The MABAC method
 	
 The MULTIMOORA method
 
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	weights : ndarray
+		Vector with criteria weights
+	types : ndarray
+		Vector with criteria types
+		
+Returns
+	ndarray
+		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
+
 .. code-block:: console
 
 	import numpy as np
@@ -323,6 +407,14 @@ Methods for determining compromise rankings
 	
 The Borda count and Copeland Method for compromise ranking
 
+Parameters
+	matrix : ndarray
+		Matrix with rankings provided by different MCDA methods in particular columns.
+		
+Returns
+	ndarray
+		Vector with compromise ranking.
+
 .. code-block:: console
 
 	import numpy as np
@@ -345,6 +437,14 @@ The Borda count and Copeland Method for compromise ranking
 	
 The Dominance Directed Graph
 
+Parameters
+	matrix : ndarray
+		Matrix with rankings provided by different MCDA methods in particular columns.
+		
+Returns
+	ndarray
+		Vector with compromise ranking.
+
 .. code-block:: console
 
 	import numpy as np
@@ -361,6 +461,14 @@ The Dominance Directed Graph
 	
 The Rank Position compromise ranking method
 
+Parameters
+	matrix : ndarray
+		Matrix with rankings provided by different MCDA methods in particular columns.
+		
+Returns
+	ndarray
+		Vector with compromise ranking.
+
 .. code-block:: console
 
 	import numpy as np
@@ -376,6 +484,14 @@ The Rank Position compromise ranking method
 	
 	
 The Improved Borda Rule compromise ranking method for MULTIMOORA
+
+Parameters
+	matrix : ndarray
+		Matrix with rankings provided by different MCDA methods in particular columns.
+		
+Returns
+	ndarray
+		Vector with compromise ranking.
 
 .. code-block:: console
 
@@ -394,6 +510,16 @@ Correlation coefficents
 
 Spearman correlation coefficient
 
+Parameters
+	R : ndarray
+		First vector containing values
+	Q : ndarray
+		Second vector containing values
+		
+Returns
+	float
+        Value of correlation coefficient between two vectors
+
 .. code-block:: console
 
 	import numpy as np
@@ -408,6 +534,16 @@ Spearman correlation coefficient
 	
 	
 Weighted Spearman correlation coefficient
+
+Parameters
+	R : ndarray
+		First vector containing values
+	Q : ndarray
+		Second vector containing values
+		
+Returns
+	float
+        Value of correlation coefficient between two vectors
 
 .. code-block:: console
 
@@ -424,6 +560,16 @@ Weighted Spearman correlation coefficient
 	
 Similarity rank coefficient WS
 
+Parameters
+	R : ndarray
+		First vector containing values
+	Q : ndarray
+		Second vector containing values
+		
+Returns
+	float
+        Value of similarity coefficient between two vectors
+
 .. code-block:: console
 
 	import numpy as np
@@ -439,6 +585,16 @@ Similarity rank coefficient WS
 	
 Pearson correlation coefficient
 
+Parameters
+	R : ndarray
+		First vector containing values
+	Q : ndarray
+		Second vector containing values
+		
+Returns
+	float
+        Value of correlation coefficient between two vectors
+
 .. code-block:: console
 
 	import numpy as np
@@ -453,7 +609,28 @@ Pearson correlation coefficient
 	
 Method for sensitivity analysis considering criteria weights modification
 
-Sensitivity_analysis_weights
+sensitivity_analysis
+
+Parameters
+	matrix : ndarray
+		Decision matrix with alternatives performances data. This matrix includes
+		data on m alternatives in rows considering criteria in columns
+	weights : ndarray
+		Vector with criteria weights. All weights in this vector must sum to 1.
+	types : ndarray
+		Vector with criteria types. Types can be equal to 1 for profit criteria and -1
+		for cost criteria.
+	percentages : ndarray
+		Vector with percentage values of given criteria weight modification.
+	mcda_name : str
+		Name of applied MCDA method
+	j : int
+		Index of column in decision matrix `matrix` that indicates for which criterion
+		the weight is modified. 
+		
+Returns
+	data_sens : DataFrame
+        dataframe with rankings calculated for subsequent modifications of criterion j weight
 
 .. code-block:: console
 
