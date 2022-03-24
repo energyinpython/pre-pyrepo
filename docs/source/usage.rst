@@ -48,6 +48,7 @@ Import method for ranking alternatives according to prefernce values from module
 >>> from pyrepo.additions import rank_preferences
 
 
+
 Usage examples
 ----------------------
 
@@ -93,6 +94,13 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the TOPSIS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+Output
+
+.. code-block:: console
+	Preference values:  [0.3075 0.2536 0.3272 0.2623 0.8563 0.1914]
+	Ranking:  [3 5 2 4 1 6]
+
+	
 	
 The VIKOR method
 
@@ -136,6 +144,13 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives ascendingly according to the VIKOR algorithm (reverse = False means sorting in ascending order) according to preference values
 	rank = rank_preferences(pref, reverse = False)
 	
+Output
+
+.. code-block:: console
+	Preference values:  [0.6399 1.     0.6929 0.2714 0.     0.6939]
+	Ranking:  [3 6 4 2 1 5]
+	
+
 	
 The SPOTIS method
 
@@ -186,6 +201,12 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives ascendingly according to the SPOTIS algorithm (reverse = False means sorting in ascending order) according to preference values
 	rank = rank_preferences(pref, reverse = False)
 	
+Output
+
+.. code-block:: console
+	Preference values:  [0.478  0.5781 0.5557 0.5801]
+	Ranking:  [1 3 2 4]
+
 	
 The CODAS method
 
@@ -229,6 +250,13 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the CODAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+Output
+
+.. code-block:: console
+	Preference values:  [ 1.3914  0.3411 -0.217  -0.5381 -0.7292 -0.2481]
+	Ranking:  [1 2 3 5 6 4]
+
+	
 	
 The WASPAS method
 
@@ -270,6 +298,13 @@ Returns
 	
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the WASPAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
+	
+Output
+
+.. code-block:: console
+	Preference values:  [0.5623 0.6578 0.6193 0.641  0.7224]
+	Ranking:  [5 2 4 3 1]
+
 	
 	
 The EDAS method
@@ -314,6 +349,12 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the EDAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+Output
+
+.. code-block:: console
+	Preference values:  [0.4141 0.13   0.4607 0.212  0.9443 0.043 ]
+	Ranking:  [3 5 2 4 1 6]
+
 	
 The MABAC method
 
@@ -362,6 +403,13 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the MABAC algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+Output
+
+.. code-block:: console
+	Preference values:  [-0.1553 -0.0895  0.5054  0.1324  0.2469 -0.3868 -0.1794  0.3629 -0.0842
+	-0.1675  0.1399]
+	Ranking:  [ 8  7  1  5  3 11 10  2  6  9  4]
+
 	
 The MULTIMOORA method
 
@@ -402,6 +450,12 @@ Returns
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the MULTIMOORA algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
 	
+Output
+
+.. code-block:: console
+	Ranking:  [3 2 1]
+	
+
 	
 Methods for determining compromise rankings
 	
@@ -435,6 +489,12 @@ Returns
 	# Calculate the compromise ranking using `borda_copeland_compromise_ranking` method
 	result = compromises.borda_copeland_compromise_ranking(matrix)
 	
+Output
+
+.. code-block:: console
+
+
+	
 The Dominance Directed Graph
 
 Parameters
@@ -458,6 +518,11 @@ Returns
 	# Calculate the compromise ranking using `dominance_directed_graph` method
 	result = compromises.dominance_directed_graph(matrix)
 	
+Output
+
+.. code-block:: console
+
+
 	
 The Rank Position compromise ranking method
 
@@ -482,6 +547,11 @@ Returns
 	# Calculate the compromise ranking using `rank_position_method` method
 	result = compromises.rank_position_method(matrix)
 	
+Output
+
+.. code-block:: console
+
+
 	
 The Improved Borda Rule compromise ranking method for MULTIMOORA
 
@@ -505,6 +575,12 @@ Returns
 	
 	# Calculate the compromise ranking using `improved_borda_rule` method
 	result = compromises.improved_borda_rule(matrix)
+
+Output
+
+.. code-block:: console
+
+
 
 Correlation coefficents
 
@@ -532,6 +608,11 @@ Returns
 	# Calculate the compromise ranking using `spearman` coefficient
 	coeff = corrs.spearman(R, Q)
 	
+Output
+
+.. code-block:: console
+
+
 	
 Weighted Spearman correlation coefficient
 
@@ -557,6 +638,11 @@ Returns
 	# Calculate the compromise ranking using `weighted_spearman` coefficient
 	coeff = corrs.weighted_spearman(R, Q)
 	
+Output
+
+.. code-block:: console
+
+
 	
 Similarity rank coefficient WS
 
@@ -582,6 +668,11 @@ Returns
 	# Calculate the compromise ranking using `WS_coeff` coefficient
 	coeff = corrs.WS_coeff(R, Q)
 	
+Output
+
+.. code-block:: console
+
+
 	
 Pearson correlation coefficient
 
@@ -606,6 +697,12 @@ Returns
 	
 	# Calculate the compromise ranking using `pearson_coeff` coefficient
 	coeff = corrs.pearson_coeff(R, Q)
+	
+Output
+
+.. code-block:: console
+
+
 	
 Method for sensitivity analysis considering criteria weights modification
 
@@ -637,6 +734,31 @@ Returns
 	import numpy as np
 	from pyrepo.sensitivity_analysis import Sensitivity_analysis_weights
 	
+	import numpy as np
+	from pyrepo.mcda_methods import CODAS
+
+	# provide decision matrix in array numpy.darray
+	matrix = np.array([[45, 3600, 45, 0.9],
+	[25, 3800, 60, 0.8],
+	[23, 3100, 35, 0.9],
+	[14, 3400, 50, 0.7],
+	[15, 3300, 40, 0.8],
+	[28, 3000, 30, 0.6]])
+
+	# provide criteria weights in array numpy.darray. All weights must sum to 1.
+	weights = np.array([0.2857, 0.3036, 0.2321, 0.1786])
+	
+	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
+	types = np.array([1, -1, 1, 1])
+	
+	# provide vector with percentage values of chosen criterion weight modification
+	percentages = np.arange(0.05, 0.5, 0.1)
+	
+	# provide mcda_name, for example 'SPOTIS' to apply the SPOTIS method
+	mcda_name = 'SPOTIS'
+	
+	# provide index of j-th chosen criterion whose weight will be modified in sensitivity analysis, for example j = 1 for criterion in the second column
+	j = 1
 	
 	# Create the Sensitivity_analysis_weights object
 	sensitivity_analysis = Sensitivity_analysis_weights()

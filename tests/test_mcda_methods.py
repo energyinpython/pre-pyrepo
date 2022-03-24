@@ -39,6 +39,9 @@ class Test_VIKOR(unittest.TestCase):
 
         method = VIKOR(v = 0.625)
         test_result = method(matrix, weights, types)
+        print('VIKOR')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = False))
         real_result = np.array([0.640, 1.000, 0.693, 0.271, 0.000, 0.694])
 
         self.assertEqual(list(np.round(test_result, 3)), list(real_result))
@@ -63,6 +66,9 @@ class Test_TOPSIS(unittest.TestCase):
 
         method = TOPSIS(normalization_method=norms.vector_normalization, distance_metric=dists.euclidean)
         test_result = method(matrix, weights, types)
+        print('TOPSIS')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = True))
         real_result = np.array([0.308, 0.254, 0.327, 0.263, 0.857, 0.192])
 
         self.assertEqual(list(np.round(test_result, 2)), list(np.round(real_result, 2)))
@@ -88,6 +94,9 @@ class Test_CODAS(unittest.TestCase):
 
         method = CODAS(normalization_method = norms.linear_normalization, distance_metric = dists.euclidean, tau = 0.02)
         test_result = method(matrix, weights, types)
+        print('CODAS')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = True))
         real_result = np.array([1.3914, 0.3411, -0.2170, -0.5381, -0.7292, -0.2481])
         
         self.assertEqual(list(np.round(test_result, 4)), list(real_result))
@@ -133,6 +142,9 @@ class Test_WASPAS(unittest.TestCase):
 
         method = WASPAS(normalization_method=norms.linear_normalization, lambda_param=0.5)
         test_result = method(matrix, weights, types)
+        print('WASPAS')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = True))
         real_result = np.array([0.5622, 0.6575, 0.6192, 0.6409, 0.722])
         
         self.assertEqual(list(np.round(test_result, 3)), list(np.round(real_result, 3)))
@@ -161,6 +173,9 @@ class Test_SPOTIS(unittest.TestCase):
 
         method = SPOTIS()
         test_result = method(matrix, weights, types, bounds)
+        print('SPOTIS')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = False))
         
         real_result = np.array([0.4779, 0.5781, 0.5558, 0.5801])
         self.assertEqual(list(np.round(test_result, 3)), list(np.round(real_result, 3)))
@@ -185,6 +200,9 @@ class Test_EDAS(unittest.TestCase):
 
         method = EDAS()
         test_result = method(matrix, weights, types)
+        print('EDAS')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = True))
         real_result = np.array([0.414, 0.130, 0.461, 0.212, 0.944, 0.043])
         self.assertEqual(list(np.round(test_result, 3)), list(np.round(real_result, 3)))
 
@@ -214,6 +232,9 @@ class Test_MABAC(unittest.TestCase):
 
         method = MABAC(normalization_method=norms.minmax_normalization)
         test_result = method(matrix, weights, types)
+        print('MABAC')
+        print('Preference values: ', np.round(test_result, 4))
+        print('Ranking: ', rank_preferences(test_result, reverse = True))
         real_result = np.array([-0.155317, -0.089493, 0.505407, 0.132405, 0.246943, -0.386756, 
         -0.179406, 0.362921, -0.084198, -0.167505, 0.139895])
         
@@ -259,6 +280,8 @@ class Test_MULTIMOORA(unittest.TestCase):
         mmoora = MULTIMOORA(compromise_rank_method=compromises.dominance_directed_graph)
         test_result = mmoora(matrix, weights, types)
         real_result = np.array([3, 2, 1])
+        print('MULTIMOORA')
+        print('Ranking: ', test_result)
         
         self.assertEqual(list(test_result), list(real_result))
 
