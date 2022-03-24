@@ -6,29 +6,44 @@ Usage
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use PyREPO, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   (.venv) $ pip install pyrepo
 
-Creating recipes
-----------------
+Importing methods from pyrepo package
+-------------------------------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+MCDA methods for example TOPSIS:
 
-.. autofunction:: lumache.get_random_ingredients
+>>> from pyrepo.mcda_methods import TOPSIS
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+weighting methods:
 
-.. autoexception:: lumache.InvalidKindError
+>>> from pyrepo import weighting_methods as mcda_weights
 
-For example:
+Normalization mathods:
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+>>> from pyrepo import normalizations as norms
+
+Correlations:
+
+>>> from pyrepo import correlations as corrs
+
+Distance metrics:
+
+>>> from pyrepo import distance_metrics as dists
+
+Compromise rankings:
+
+>>> from pyrepo import compromise_rankings as compromises
+
+Sensitivity analysis method:
+
+>>> from pyrepo.sensitivity_analysis import Sensitivity_analysis_weights
+
+Ranking alternatives according to prefernce values:
+
+>>> from pyrepo.additions import rank_preferences
 
