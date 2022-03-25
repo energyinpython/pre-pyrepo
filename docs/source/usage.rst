@@ -103,7 +103,7 @@ Returns
 	
 	rank = rank_preferences(pref, reverse = True)
 
-	print('Preference values: ', pref)
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
@@ -133,6 +133,7 @@ Returns
 
 	import numpy as np
 	from pyrepo.mcda_methods import VIKOR
+	from pyrepo.additions import rank_preferences
 
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[8, 7, 2, 1],
@@ -144,20 +145,20 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.4, 0.3, 0.1, 0.2])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([1, 1, 1, 1])
 
 	# Create the VIKOR method object providing v parameter. The default v parameter is set to 0.5, so if you do not provide it, v will be equal to 0.5.
 	vikor = VIKOR(v = 0.625)
-	
+
 	# Calculate the VIKOR preference values of alternatives
 	pref = vikor(matrix, weights, types)
-	
+
 	# Generate ranking of alternatives by sorting alternatives ascendingly according to the VIKOR algorithm (reverse = False means sorting in ascending order) according to preference values
 	rank = rank_preferences(pref, reverse = False)
-	
-	print('Preference values: ', pref)
+
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
@@ -188,37 +189,41 @@ Returns
 	import numpy as np
 	from pyrepo.mcda_methods import SPOTIS
 
+	import numpy as np
+	from pyrepo.mcda_methods import SPOTIS
+	from pyrepo.additions import rank_preferences
+
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[15000, 4.3, 99, 42, 737],
-	 [15290, 5.0, 116, 42, 892],
-	 [15350, 5.0, 114, 45, 952],
-	 [15490, 5.3, 123, 45, 1120]])
+		[15290, 5.0, 116, 42, 892],
+		[15350, 5.0, 114, 45, 952],
+		[15490, 5.3, 123, 45, 1120]])
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.2941, 0.2353, 0.2353, 0.0588, 0.1765])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([-1, -1, -1, 1, 1])
-	
+
 	# Determine minimum bounds of performance values for each criterion in decision matrix
 	bounds_min = np.array([14000, 3, 80, 35, 650])
-	
+
 	# Determine maximum bounds of performance values for each criterion in decision matrix
 	bounds_max = np.array([16000, 8, 140, 60, 1300])
-	
+
 	# Stack minimum and maximum bounds vertically using vstack. You will get a matrix that has two rows and a number of columns equal to the number of criteria
 	bounds = np.vstack((bounds_min, bounds_max))
 
 	# Create the SPOTIS method object
 	spotis = SPOTIS()
-	
+
 	# Calculate the SPOTIS preference values of alternatives
 	pref = spotis(matrix, weights, types, bounds)
-	
+
 	# Generate ranking of alternatives by sorting alternatives ascendingly according to the SPOTIS algorithm (reverse = False means sorting in ascending order) according to preference values
 	rank = rank_preferences(pref, reverse = False)
-	
-	print('Preference values: ', pref)
+
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
@@ -248,6 +253,9 @@ Returns
 
 	import numpy as np
 	from pyrepo.mcda_methods import CODAS
+	from pyrepo import normalizations as norms
+	from pyrepo import distance_metrics as dists
+	from pyrepo.additions import rank_preferences
 
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[45, 3600, 45, 0.9],
@@ -259,20 +267,20 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.2857, 0.3036, 0.2321, 0.1786])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([1, -1, 1, 1])
 
 	# Create the CODAS method object providing normalization method (in CODAS it is linear_normalization by default), distance metric, and tau parameter, which is equal to 0.02 default. tau must be in the range from 0.01 to 0.05.
 	codas = CODAS(normalization_method = norms.linear_normalization, distance_metric = dists.euclidean, tau = 0.02)
-	
+
 	# Calculate the CODAS preference values of alternatives
 	pref = codas(matrix, weights, types)
-	
+
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the CODAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
-	
-	print('Preference values: ', pref)
+
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
@@ -302,6 +310,8 @@ Returns
 
 	import numpy as np
 	from pyrepo.mcda_methods import WASPAS
+	from pyrepo import normalizations as norms
+	from pyrepo.additions import rank_preferences
 
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[5000, 3, 3, 4, 3, 2],
@@ -312,27 +322,27 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.157, 0.249, 0.168, 0.121, 0.154, 0.151])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([-1, 1, 1, 1, 1, 1])
 
 	# Create the WASPAS method object providing normalization method (in WASAPS it is linear_normalization by default), and lambda parameter, which is equal to 0.5 default. tau must be in the range from 0 to 1.
 	waspas = WASPAS(normalization_method=norms.linear_normalization, lambda_param=0.5)
-	
+
 	# Calculate the WASPAS preference values of alternatives
 	pref = waspas(matrix, weights, types)
-	
+
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the WASPAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
-	
-	print('Preference values: ', pref)
+
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
 
 .. code-block:: console
 
-	Preference values:  [0.5623 0.6578 0.6193 0.641  0.7224]
+	Preference values:  [0.5622 0.6575 0.6192 0.6409 0.7228]
 	Ranking:  [5 2 4 3 1]
 
 	
@@ -355,6 +365,7 @@ Returns
 
 	import numpy as np
 	from pyrepo.mcda_methods import EDAS
+	from pyrepo.additions import rank_preferences
 
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[256, 8, 41, 1.6, 1.77, 7347.16],
@@ -366,20 +377,20 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.405, 0.221, 0.134, 0.199, 0.007, 0.034])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([1, 1, 1, 1, -1, -1])
 
 	# Create the EDAS method object.
 	edas = EDAS()
-	
+
 	# Calculate the EDAS preference values of alternatives
 	pref = edas(matrix, weights, types)
-	
+
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the EDAS algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
-	
-	print('Preference values: ', pref)
+
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
@@ -409,6 +420,8 @@ Returns
 
 	import numpy as np
 	from pyrepo.mcda_methods import MABAC
+	from pyrepo import normalizations as norms
+	from pyrepo.additions import rank_preferences
 
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[2.937588, 2.762986, 3.233723, 2.881315, 3.015289, 3.313491],
@@ -425,20 +438,20 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.171761, 0.105975, 0.191793, 0.168824, 0.161768, 0.199880])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([1, 1, 1, 1, 1, 1])
 
 	# Create the MABAC method object providing normalization method. In MABAC it is minmax_normalization by default.
 	mabac = MABAC(normalization_method=norms.minmax_normalization)
-	
+
 	# Calculate the MABAC preference values of alternatives
 	pref = mabac(matrix, weights, types)
-	
+
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the MABAC algorithm (reverse = True means sorting in descending order) according to preference values
 	rank = rank_preferences(pref, reverse = True)
-	
-	print('Preference values: ', pref)
+
+	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
 	
 Output
@@ -446,7 +459,7 @@ Output
 .. code-block:: console
 
 	Preference values:  [-0.1553 -0.0895  0.5054  0.1324  0.2469 -0.3868 -0.1794  0.3629 -0.0842
-	-0.1675  0.1399]
+	 -0.1675  0.1399]
 	Ranking:  [ 8  7  1  5  3 11 10  2  6  9  4]
 
 	
@@ -469,6 +482,8 @@ Returns
 
 	import numpy as np
 	from pyrepo.mcda_methods import MULTIMOORA
+	from pyrepo.additions import rank_preferences
+	from pyrepo import compromise_rankings as compromises
 
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[4, 3, 3, 4, 3, 2, 4],
@@ -477,19 +492,16 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.215, 0.215, 0.159, 0.133, 0.102, 0.102, 0.073])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([1, 1, 1, 1, 1, 1, 1])
 
 	# Create the MULTIMOORA method object providing compromise_rank_method. In MULTIMOORA it is dominance_directed_graph by default.
-	multimoora = MULTIMOORA(compromise_rank_method = dominance_directed_graph)
-	
-	# Calculate the MULTIMOORA preference values of alternatives
-	pref = multimoora(matrix, weights, types)
-	
-	# Generate ranking of alternatives by sorting alternatives descendingly according to the MULTIMOORA algorithm (reverse = True means sorting in descending order) according to preference values
-	rank = rank_preferences(pref, reverse = True)
-	
+	multimoora = MULTIMOORA(compromise_rank_method = compromises.dominance_directed_graph)
+
+	# Calculate the MULTIMOORA ranking of alternatives
+	rank = multimoora(matrix, weights, types)
+
 	print('Ranking: ', rank)
 	
 Output
@@ -624,21 +636,21 @@ Returns
 
 	import numpy as np
 	from pyrepo import compromise_rankings as compromises
-	
+
 	# Provide matrix with different preference values given by different MCDA methods in columns
 	prefs = np.array([[4.94364901e-01, 4.56157867e-02, 3.85006756e-09],
 	[5.26950959e-01, 6.08111832e-02, 9.62516889e-09],
 	[6.77457681e-01, 0.00000000e+00, 4.45609671e-08]])
 
 	# Provide matrix with different rankings given by different MCDA methods in columns
-	matrix = np.array([[3, 2, 3],
+	ranks = np.array([[3, 2, 3],
 	[2, 3, 2],
 	[1, 1, 1]])
-	
+
 	# Calculate the compromise ranking using `improved_borda_rule` method
 	result = compromises.improved_borda_rule(prefs, ranks)
-	
-    print('Improved Borda Rule compromise ranking: ', result)
+
+	print('Improved Borda Rule compromise ranking: ', result)
 
 Output
 
@@ -669,10 +681,11 @@ Returns
 
 	# Provide two vectors with rankings obtained with different MCDA methods
 	R = np.array([1, 2, 3, 4, 5])
-    Q = np.array([1, 3, 2, 4, 5])
-	
+	Q = np.array([1, 3, 2, 4, 5])
+
 	# Calculate the compromise ranking using `spearman` coefficient
 	coeff = corrs.spearman(R, Q)
+	print('Spearman coeff: ', np.round(coeff, 4))
 	
 Output
 
@@ -701,10 +714,11 @@ Returns
 
 	# Provide two vectors with rankings obtained with different MCDA methods
 	R = np.array([1, 2, 3, 4, 5])
-    Q = np.array([1, 3, 2, 4, 5])
-	
+	Q = np.array([1, 3, 2, 4, 5])
+
 	# Calculate the compromise ranking using `weighted_spearman` coefficient
 	coeff = corrs.weighted_spearman(R, Q)
+	print('Weighted Spearman coeff: ', np.round(coeff, 4))
 	
 Output
 
@@ -733,10 +747,11 @@ Returns
 
 	# Provide two vectors with rankings obtained with different MCDA methods
 	R = np.array([1, 2, 3, 4, 5])
-    Q = np.array([1, 3, 2, 4, 5])
-	
+	Q = np.array([1, 3, 2, 4, 5])
+
 	# Calculate the compromise ranking using `WS_coeff` coefficient
 	coeff = corrs.WS_coeff(R, Q)
+	print('WS coeff: ', np.round(coeff, 4))
 	
 Output
 
@@ -765,10 +780,11 @@ Returns
 
 	# Provide two vectors with rankings obtained with different MCDA methods
 	R = np.array([1, 2, 3, 4, 5])
-    Q = np.array([1, 3, 2, 4, 5])
-	
+	Q = np.array([1, 3, 2, 4, 5])
+
 	# Calculate the compromise ranking using `pearson_coeff` coefficient
 	coeff = corrs.pearson_coeff(R, Q)
+	print('Pearson coeff: ', np.round(coeff, 4))
 	
 Output
 
