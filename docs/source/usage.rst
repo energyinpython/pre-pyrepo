@@ -69,7 +69,7 @@ Usage examples
 ----------------------
 
 The TOPSIS method
-__________________
+...................
 
 Parameters
 	matrix : ndarray
