@@ -82,7 +82,8 @@ def main():
     plot_barplot(df_rankings)
 
     # plot box chart of alternatives preference values
-    plot_boxplot(df_preferences.T, mcda_name = 'TOPSIS')
+    # plot_boxplot_old(df_preferences.T, mcda_name = 'TOPSIS')
+    plot_boxplot(df_preferences.T)
 
     
     #####

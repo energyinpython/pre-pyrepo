@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import pandas as pd
 
 
 # Part 1 - Methods for visualization for basic usage of PyREPO library
@@ -171,7 +172,27 @@ def plot_radar(data):
     plt.show()
 
 
-def plot_boxplot(data, mcda_name):
+def plot_boxplot(data):
+    """
+    Display boxplot showing distribution of criteria weights determined with different methods.
+    Parameters
+    ----------
+    data : dataframe
+        dataframe with correlation values between compared rankings
+    """
+    
+    df_melted = pd.melt(data)
+    plt.figure(figsize = (7, 4))
+    ax = sns.boxplot(x = 'variable', y = 'value', data = df_melted, width = 0.6)
+    ax.grid(True, linestyle = '--')
+    ax.set_axisbelow(True)
+    ax.set_xlabel('Criterion', fontsize = 12)
+    ax.set_ylabel('Preference distribution', fontsize = 12)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_boxplot_old(data, mcda_name):
     """
     Display boxplot showing distribution of criteria weights determined with different methods.
     Parameters
