@@ -814,15 +814,100 @@ Methods for criteria weights determination
 
 Entropy weighting method
 
+Parameters
+	matrix : ndarray
+        Decision matrix with performance values of m alternatives and n criteria
+		
+Returns
+	ndarray
+        vector of criteria weights
+		
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo import weighting_methods as mcda_weights
+
+	matrix = np.array([[30, 30, 38, 29],
+	[19, 54, 86, 29],
+	[19, 15, 85, 28.9],
+	[68, 70, 60, 29]])
+	
+	weights = mcda_weights.entropy_weighting(matrix)
+	
+	print('Entropy weights: ', np.round(weights, 4))
+	
+Output
+
+.. code-block:: console
+
+	Entropy weights:  [0.463  0.3992 0.1378 0.    ]
+	
+	
+
 
 
 CRITIC weighting method
 
+Parameters
+	matrix : ndarray
+        Decision matrix with performance values of m alternatives and n criteria
+		
+Returns
+	ndarray
+        vector of criteria weights
+		
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo import weighting_methods as mcda_weights
+
+	matrix = np.array([[5000, 3, 3, 4, 3, 2],
+	[680, 5, 3, 2, 2, 1],
+	[2000, 3, 2, 3, 4, 3],
+	[600, 4, 3, 1, 2, 2],
+	[800, 2, 4, 3, 3, 4]])
+	
+	weights = mcda_weights.critic_weighting(matrix)
+	
+	print('CRITIC weights: ', np.round(weights, 4))
+	
+Output
+
+.. code-block:: console
+
+	CRITIC weights:  [0.157  0.2495 0.1677 0.1211 0.1541 0.1506]
 
 
 Standard deviation weighting method
 
+Parameters
+	matrix : ndarray
+        Decision matrix with performance values of m alternatives and n criteria
+		
+Returns
+	ndarray
+        vector of criteria weights
+		
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo import weighting_methods as mcda_weights
+
+	matrix = np.array([[0.619, 0.449, 0.447],
+	[0.862, 0.466, 0.006],
+	[0.458, 0.698, 0.771],
+	[0.777, 0.631, 0.491],
+	[0.567, 0.992, 0.968]])
 	
+	weights = mcda_weights.std_weighting(matrix)
+	
+	print('Standard deviation weights: ', np.round(weights, 4))
+	
+Output
+
+.. code-block:: console
+
+	Standard deviation weights:  [0.2173 0.2945 0.4882]
 	
 Method for sensitivity analysis considering criteria weights modification
 

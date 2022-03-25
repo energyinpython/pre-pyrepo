@@ -19,6 +19,7 @@ class Test_CRITIC(unittest.TestCase):
         types = np.array([-1, 1, 1, 1, 1, 1])
 
         test_result = mcda_weights.critic_weighting(matrix)
+        print('CRITIC weights: ', np.round(test_result, 4))
         real_result = np.array([0.157, 0.249, 0.168, 0.121, 0.154, 0.151])
         self.assertEqual(list(np.round(test_result, 3)), list(real_result))
 
@@ -39,6 +40,7 @@ class Test_Entropy(unittest.TestCase):
         types = np.array([1, 1, 1, 1])
 
         test_result = mcda_weights.entropy_weighting(matrix)
+        print('Entropy weights: ', np.round(test_result, 4))
         real_result = np.array([0.4630, 0.3992, 0.1378, 0.0000])
         self.assertEqual(list(np.round(test_result, 4)), list(real_result))
 
@@ -94,6 +96,7 @@ class Test_STD(unittest.TestCase):
         types = np.array([1, 1, 1])
 
         test_result = mcda_weights.std_weighting(matrix)
+        print('Standard deviation weights: ', np.round(test_result, 4))
         real_result = np.array([0.217, 0.294, 0.488])
         self.assertEqual(list(np.round(test_result, 3)), list(real_result))
         
