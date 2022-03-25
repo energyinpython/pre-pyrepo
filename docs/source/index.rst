@@ -88,4 +88,3 @@ Contents
 .. toctree::
 
    usage
-   api
