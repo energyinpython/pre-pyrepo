@@ -8,44 +8,60 @@ Installation
 
 To use PyREPO, first install it using pip:
 
-.. code-block:: console
+.. code-block:: python
 
-   (.venv) $ pip install pyrepo
+	pip install pyrepo
 
 Importing methods from pyrepo package
 -------------------------------------
 
 Import MCDA methods from module `mcda_methods`:
 
->>> from pyrepo.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
+.. code-block:: python
+
+	from pyrepo.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
 
 Import weighting methods from module `weighting_methods`:
 
->>> from pyrepo import weighting_methods as mcda_weights
+.. code-block:: python
+
+	from pyrepo import weighting_methods as mcda_weights
 
 Import normalization methods from module `normalizations`:
 
->>> from pyrepo import normalizations as norms
+.. code-block:: python
+
+	from pyrepo import normalizations as norms
 
 Import correlation coefficient from module `correlations`:
 
->>> from pyrepo import correlations as corrs
+.. code-block:: python
+
+	from pyrepo import correlations as corrs
 
 Import distance metrics from module `distance_metrics`:
 
->>> from pyrepo import distance_metrics as dists
+.. code-block:: python
+
+	from pyrepo import distance_metrics as dists
 
 Import compromise rankings methods from module `compromise_rankings`:
 
->>> from pyrepo import compromise_rankings as compromises
+.. code-block:: python
+
+	from pyrepo import compromise_rankings as compromises
 
 Import Sensitivity analysis method from module `sensitivity_analysis`:
 
->>> from pyrepo.sensitivity_analysis import Sensitivity_analysis_weights
+.. code-block:: python
+
+	from pyrepo.sensitivity_analysis import Sensitivity_analysis_weights
 
 Import method for ranking alternatives according to prefernce values from module `additions`:
 
->>> from pyrepo.additions import rank_preferences
+.. code-block:: python
+
+	from pyrepo.additions import rank_preferences
 
 
 
@@ -129,7 +145,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in ascending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import VIKOR
@@ -184,7 +200,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in ascending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import SPOTIS
@@ -249,7 +265,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import CODAS
@@ -306,7 +322,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import WASPAS
@@ -361,7 +377,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import EDAS
@@ -416,7 +432,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import MABAC
@@ -478,7 +494,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import MULTIMOORA
@@ -524,7 +540,7 @@ Returns
 	ndarray
 		Vector with compromise ranking.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import compromise_rankings as compromises
@@ -564,7 +580,7 @@ Returns
 	ndarray
 		Vector with compromise ranking.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import compromise_rankings as compromises
@@ -597,7 +613,7 @@ Returns
 	ndarray
 		Vector with compromise ranking.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import compromise_rankings as compromises
@@ -632,7 +648,7 @@ Returns
 	ndarray
 		Vector with compromise ranking.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import compromise_rankings as compromises
@@ -674,7 +690,7 @@ Returns
 	float
         Value of correlation coefficient between two vectors
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import correlations as corrs
@@ -707,7 +723,7 @@ Returns
 	float
         Value of correlation coefficient between two vectors
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import correlations as corrs
@@ -740,7 +756,7 @@ Returns
 	float
         Value of similarity coefficient between two vectors
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import correlations as corrs
@@ -773,7 +789,7 @@ Returns
 	float
         Value of correlation coefficient between two vectors
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo import correlations as corrs
@@ -819,7 +835,7 @@ Returns
 	data_sens : DataFrame
         dataframe with rankings calculated for subsequent modifications of criterion j weight
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.sensitivity_analysis import Sensitivity_analysis_weights
