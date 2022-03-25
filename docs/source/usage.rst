@@ -69,7 +69,7 @@ Usage examples
 ----------------------
 
 The TOPSIS method
-...................
+___________________
 
 Parameters
 	matrix : ndarray
@@ -133,6 +133,7 @@ Output
 	
 	
 The VIKOR method
+__________________
 
 Parameters
 	matrix : ndarray
@@ -188,6 +189,7 @@ Output
 
 	
 The SPOTIS method
+__________________
 
 Parameters
 	matrix : ndarray
@@ -253,6 +255,7 @@ Output
 	
 	
 The CODAS method
+__________________
 
 Parameters
 	matrix : ndarray
@@ -310,6 +313,7 @@ Output
 	
 	
 The WASPAS method
+___________________
 
 Parameters
 	matrix : ndarray
@@ -365,6 +369,7 @@ Output
 	
 	
 The EDAS method
+_________________
 
 Parameters
 	matrix : ndarray
@@ -420,6 +425,7 @@ Output
 	
 	
 The MABAC method
+___________________
 
 Parameters
 	matrix : ndarray
@@ -482,6 +488,7 @@ Output
 	
 	
 The MULTIMOORA method
+_______________________
 
 Parameters
 	matrix : ndarray
@@ -530,6 +537,7 @@ Output
 
 	
 Methods for determining compromise rankings
+_____________________________________________
 	
 The Borda count and Copeland Method for compromise ranking
 
@@ -676,6 +684,7 @@ Output
 
 
 Correlation coefficents
+__________________________
 
 Spearman correlation coefficient
 
@@ -806,6 +815,7 @@ Output
 	
 	
 Methods for criteria weights determination
+___________________________________________
 
 Entropy weighting method
 
@@ -836,9 +846,6 @@ Output
 
 	Entropy weights:  [0.463  0.3992 0.1378 0.    ]
 	
-	
-
-
 
 CRITIC weighting method
 
@@ -903,9 +910,9 @@ Output
 	
 	
 Distance metrics
+_________________
 
-
-Here are two examples of using distance metrics for Euclidean distance `euclidean` and Manhattan distance `Manhattan`. Usage of other distance metrics
+Here are two examples of using distance metrics for Euclidean distance `euclidean` and Manhattan distance `manhattan`. Usage of other distance metrics
 provided in module `distance metrics` is analogous.
 
 
@@ -968,6 +975,7 @@ Output
 	
 	
 Normalization methods
+______________________
 
 Here is an example of vector normalization usage. Other normalizations provided in module `normalizations`, namely `minmax_normalization`, `max_normalization`,
 `sum_normalization`, `linear_normalization`, `multimoora_normalization` are used in analogous way.
@@ -1011,6 +1019,7 @@ Output
 
 	
 Method for sensitivity analysis considering criteria weights modification
+__________________________________________________________________________
 
 sensitivity_analysis
 
