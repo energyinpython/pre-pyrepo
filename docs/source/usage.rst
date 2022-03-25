@@ -69,6 +69,7 @@ Usage examples
 ----------------------
 
 The TOPSIS method
+__________________
 
 Parameters
 	matrix : ndarray
@@ -899,6 +900,115 @@ Output
 .. code-block:: console
 
 	Standard deviation weights:  [0.2173 0.2945 0.4882]
+	
+	
+Distance metrics
+
+
+Here are two examples of using distance metrics for Euclidean distance `euclidean` and Manhattan distance `Manhattan`. Usage of other distance metrics
+provided in module `distance metrics` is analogous.
+
+
+Euclidean distance
+
+Parameters
+	A : ndarray
+		First vector containing values
+	B : ndarray
+		Second vector containing values
+Returns
+	float
+		distance value between two vetors
+
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo import distance_metrics as dists
+	
+	A = np.array([0.165, 0.113, 0.015, 0.019])
+    B = np.array([0.227, 0.161, 0.053, 0.130])
+
+    dist = dists.euclidean(A, B)
+    print('Distance: ', np.round(dist, 4))
+	
+Output
+
+.. code-block:: console
+
+	Distance:  0.1411
+	
+	
+Manhattan distance
+
+Parameters
+	A : ndarray
+		First vector containing values
+	B : ndarray
+		Second vector containing values
+Returns
+	float
+		distance value between two vetors
+
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo import distance_metrics as dists
+	
+	A = np.array([0.165, 0.113, 0.015, 0.019])
+    B = np.array([0.227, 0.161, 0.053, 0.130])
+
+    dist = dists.manhattan(A, B)
+    print('Distance: ', np.round(dist, 4))
+	
+Output
+
+.. code-block:: console
+
+	Distance:  0.259
+	
+	
+Normalization methods
+
+Here is an example of vector normalization usage. Other normalizations provided in module `normalizations`, namely `minmax_normalization`, `max_normalization`,
+`sum_normalization`, `linear_normalization`, `multimoora_normalization` are used in analogous way.
+
+
+Vector normalization
+
+Parameters
+	matrix : ndarray
+		Decision matrix with m alternatives in rows and n criteria in columns
+	types : ndarray
+		Criteria types. Profit criteria are represented by 1 and cost by -1.
+Returns
+	ndarray
+		Normalized decision matrix
+
+.. code-block:: python
+
+	matrix = np.array([[8, 7, 2, 1],
+    [5, 3, 7, 5],
+    [7, 5, 6, 4],
+    [9, 9, 7, 3],
+    [11, 10, 3, 7],
+    [6, 9, 5, 4]])
+
+    types = np.array([1, 1, 1, 1])
+
+    norm_matrix = norms.vector_normalization(matrix, types)
+    print('Normalized matrix: ', np.round(norm_matrix, 4))
+	
+Output
+
+.. code-block:: console
+
+	Normalized matrix:  [[0.4126 0.3769 0.1525 0.0928]
+	 [0.2579 0.1615 0.5337 0.4642]
+	 [0.361  0.2692 0.4575 0.3714]
+	 [0.4641 0.4845 0.5337 0.2785]
+	 [0.5673 0.5384 0.2287 0.6499]
+	 [0.3094 0.4845 0.3812 0.3714]]
+
 	
 Method for sensitivity analysis considering criteria weights modification
 
