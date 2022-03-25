@@ -66,7 +66,7 @@ Returns
 	ndarray
 		Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.
 
-.. code-block:: console
+.. code-block:: python
 
 	import numpy as np
 	from pyrepo.mcda_methods import TOPSIS
