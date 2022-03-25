@@ -52,7 +52,7 @@ def main():
     print('weights')
     print(weights)
 
-    # part 1 w zaleznosci od metryki odleglosciowej - testy z roznymi matrykami
+    # part 1 w zaleznosci od metryki odleglosciowej - testy z roznymi metrykami
     distance_metrics = [
         dists.euclidean,
         dists.manhattan,
