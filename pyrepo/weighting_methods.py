@@ -6,12 +6,12 @@ from .normalizations import sum_normalization, minmax_normalization
 
 
 # equal weighting
-def equal_weighting(X):
+def equal_weighting(matrix):
     """
     Calculate criteria weights using objective Equal weighting method
     Parameters
     ----------
-        X : ndarray
+        matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
 
     Returns
@@ -19,17 +19,17 @@ def equal_weighting(X):
         ndarray
             vector of criteria weights
     """
-    N = np.shape(X)[1]
+    N = np.shape(matrix)[1]
     return np.ones(N) / N
 
 
 # Entropy weighting
-def entropy_weighting(X):
+def entropy_weighting(matrix):
     """
     Calculate criteria weights using objective Entropy weighting method
     Parameters
     ----------
-        X : ndarray
+        matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
 
     Returns
@@ -38,9 +38,9 @@ def entropy_weighting(X):
             vector of criteria weights
     """
     # normalize the decision matrix with sum_normalization method from normalizations as for profit criteria
-    types = np.ones(np.shape(X)[1])
-    pij = sum_normalization(X, types)
-    # Transform negative values in decision matrix X to positive values
+    types = np.ones(np.shape(matrix)[1])
+    pij = sum_normalization(matrix, types)
+    # Transform negative values in decision matrix `matrix` to positive values
     pij = np.abs(pij)
     m, n = np.shape(pij)
     H = np.zeros((m, n))
@@ -61,12 +61,12 @@ def entropy_weighting(X):
 
 
 # Standard Deviation weighting
-def std_weighting(X):
+def std_weighting(matrix):
     """
     Calculate criteria weights using objective Standard deviation weighting method
     Parameters
     ----------
-        X : ndarray
+        matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
             
     Returns
@@ -76,18 +76,18 @@ def std_weighting(X):
     """
 
     # Calculate the standard deviation of each criterion in decision matrix
-    stdv = np.sqrt((np.sum(np.square(X - np.mean(X, axis = 0)), axis = 0)) / (X.shape[0]))
+    stdv = np.sqrt((np.sum(np.square(matrix - np.mean(matrix, axis = 0)), axis = 0)) / (matrix.shape[0]))
     # Calculate criteria weights by dividing the standard deviations by their sum
     return stdv / np.sum(stdv)
 
 
 # CRITIC weighting
-def critic_weighting(X):
+def critic_weighting(matrix):
     """
     Calculate criteria weights using objective CRITIC weighting method
     Parameters
     ----------
-        X : ndarray
+        matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
             
     Returns
@@ -96,8 +96,8 @@ def critic_weighting(X):
             vector of criteria weights
     """
     # Normalize the decision matrix using Minimum-Maximum normalization minmax_normalization from normalizations as for profit criteria
-    types = np.ones(np.shape(X)[1])
-    x_norm = minmax_normalization(X, types)
+    types = np.ones(np.shape(matrix)[1])
+    x_norm = minmax_normalization(matrix, types)
     # Calculate the standard deviation
     std = np.std(x_norm, axis = 0)
     n = np.shape(x_norm)[1]
