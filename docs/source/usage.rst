@@ -807,6 +807,20 @@ Output
 .. code-block:: console
 
 	Pearson coeff:  0.9
+	
+	
+	
+Methods for criteria weights determination
+
+Entropy weighting method
+
+
+
+CRITIC weighting method
+
+
+
+Standard deviation weighting method
 
 	
 	

@@ -186,13 +186,13 @@ def plot_boxplot(data):
     ax = sns.boxplot(x = 'variable', y = 'value', data = df_melted, width = 0.6)
     ax.grid(True, linestyle = '--')
     ax.set_axisbelow(True)
-    ax.set_xlabel('Criterion', fontsize = 12)
+    ax.set_xlabel('Alternatives', fontsize = 12)
     ax.set_ylabel('Preference distribution', fontsize = 12)
     plt.tight_layout()
     plt.show()
 
 
-def plot_boxplot_old(data, mcda_name):
+def plot_boxplot_2(data, mcda_name):
     """
     Display boxplot showing distribution of criteria weights determined with different methods.
     Parameters
