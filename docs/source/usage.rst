@@ -816,11 +816,10 @@ Entropy weighting method
 
 Parameters
 	matrix : ndarray
-        Decision matrix with performance values of m alternatives and n criteria
-		
+		Decision matrix with performance values of m alternatives and n criteria
 Returns
 	ndarray
-        vector of criteria weights
+		vector of criteria weights
 		
 .. code-block:: python
 
@@ -850,11 +849,11 @@ CRITIC weighting method
 
 Parameters
 	matrix : ndarray
-        Decision matrix with performance values of m alternatives and n criteria
+		Decision matrix with performance values of m alternatives and n criteria
 		
 Returns
 	ndarray
-        vector of criteria weights
+		vector of criteria weights
 		
 .. code-block:: python
 
@@ -882,11 +881,11 @@ Standard deviation weighting method
 
 Parameters
 	matrix : ndarray
-        Decision matrix with performance values of m alternatives and n criteria
+		Decision matrix with performance values of m alternatives and n criteria
 		
 Returns
 	ndarray
-        vector of criteria weights
+		vector of criteria weights
 		
 .. code-block:: python
 
