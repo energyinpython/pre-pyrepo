@@ -608,7 +608,6 @@ The Rank Position compromise ranking method
 Parameters
 	matrix : ndarray
 		Matrix with rankings provided by different MCDA methods in particular columns.
-		
 Returns
 	ndarray
 		Vector with compromise ranking.
@@ -643,7 +642,6 @@ Parameters
 		Matrix with preference values provided by different approaches of MULTIMOORA in particular columns.
 	ranks : ndarray
 		Matrix with rankings provided by different approaches of MULTIMOORA in particular columns.
-		
 Returns
 	ndarray
 		Vector with compromise ranking.
@@ -685,10 +683,9 @@ Parameters
 		First vector containing values
 	Q : ndarray
 		Second vector containing values
-		
 Returns
 	float
-        Value of correlation coefficient between two vectors
+		Value of correlation coefficient between two vectors
 
 .. code-block:: python
 
@@ -718,10 +715,9 @@ Parameters
 		First vector containing values
 	Q : ndarray
 		Second vector containing values
-		
 Returns
 	float
-        Value of correlation coefficient between two vectors
+		Value of correlation coefficient between two vectors
 
 .. code-block:: python
 
@@ -751,10 +747,9 @@ Parameters
 		First vector containing values
 	Q : ndarray
 		Second vector containing values
-		
 Returns
 	float
-        Value of similarity coefficient between two vectors
+		Value of similarity coefficient between two vectors
 
 .. code-block:: python
 
@@ -784,10 +779,9 @@ Parameters
 		First vector containing values
 	Q : ndarray
 		Second vector containing values
-		
 Returns
 	float
-        Value of correlation coefficient between two vectors
+		Value of correlation coefficient between two vectors
 
 .. code-block:: python
 
@@ -850,10 +844,9 @@ CRITIC weighting method
 Parameters
 	matrix : ndarray
 		Decision matrix with performance values of m alternatives and n criteria
-		
 Returns
 	ndarray
-		vector of criteria weights
+		Vector of criteria weights
 		
 .. code-block:: python
 
@@ -882,10 +875,9 @@ Standard deviation weighting method
 Parameters
 	matrix : ndarray
 		Decision matrix with performance values of m alternatives and n criteria
-		
 Returns
 	ndarray
-		vector of criteria weights
+		Vector of criteria weights
 		
 .. code-block:: python
 
