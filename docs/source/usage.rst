@@ -706,7 +706,7 @@ Returns
 	R = np.array([1, 2, 3, 4, 5])
 	Q = np.array([1, 3, 2, 4, 5])
 
-	# Calculate the compromise ranking using `spearman` coefficient
+	# Calculate the correlation using `spearman` coefficient
 	coeff = corrs.spearman(R, Q)
 	print('Spearman coeff: ', np.round(coeff, 4))
 	
@@ -738,7 +738,7 @@ Returns
 	R = np.array([1, 2, 3, 4, 5])
 	Q = np.array([1, 3, 2, 4, 5])
 
-	# Calculate the compromise ranking using `weighted_spearman` coefficient
+	# Calculate the correlation using `weighted_spearman` coefficient
 	coeff = corrs.weighted_spearman(R, Q)
 	print('Weighted Spearman coeff: ', np.round(coeff, 4))
 	
@@ -770,7 +770,7 @@ Returns
 	R = np.array([1, 2, 3, 4, 5])
 	Q = np.array([1, 3, 2, 4, 5])
 
-	# Calculate the compromise ranking using `WS_coeff` coefficient
+	# Calculate the similarity using `WS_coeff` coefficient
 	coeff = corrs.WS_coeff(R, Q)
 	print('WS coeff: ', np.round(coeff, 4))
 	
@@ -802,7 +802,7 @@ Returns
 	R = np.array([1, 2, 3, 4, 5])
 	Q = np.array([1, 3, 2, 4, 5])
 
-	# Calculate the compromise ranking using `pearson_coeff` coefficient
+	# Calculate the correlation using `pearson_coeff` coefficient
 	coeff = corrs.pearson_coeff(R, Q)
 	print('Pearson coeff: ', np.round(coeff, 4))
 	
@@ -925,7 +925,7 @@ Parameters
 		Second vector containing values
 Returns
 	float
-		distance value between two vetors
+		distance value between two vectors
 
 .. code-block:: python
 
@@ -954,7 +954,7 @@ Parameters
 		Second vector containing values
 Returns
 	float
-		distance value between two vetors
+		distance value between two vectors
 
 .. code-block:: python
 
